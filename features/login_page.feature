@@ -6,9 +6,9 @@ Feature: Login Page
 
   Scenario: Get login page
     Given There is no users sing up  
-    When I go to /
-    Then I should see "login"
-    And I should see "password"
+    When I go to the homepage 
+    Then I should see "ame"
+    And I should see "assword"
 
 #  Scenario: Scenario 2
 #    Given
