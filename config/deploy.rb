@@ -1,12 +1,11 @@
-#TODO set <app_name>, <repo_name>, <user_name>
-set :application, "<app_name>"
-set :repository,  "git://git@github.com:Vaysman/<repo_name>.git"
-set :deploy_to, "/home/<user_name>/projects/<app_name>"
-set :user, "<user_name>"
+#these settings are moved away from source control system for security reason
+#set :application, ""
+#set :repository,  ""
+#set :deploy_to, ""
+#set :user, ""
+#server "", :web, :app, :db, :primary => true
 
-
-# Because I have only a single server an alternative syntax uses the "server" keyword
-server "<server_name>", :web, :app, :db, :primary => true
+load  File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'settings', 'counter.rb'))
 
 set :scm, :git
 set :use_sudo, false
