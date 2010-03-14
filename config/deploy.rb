@@ -5,7 +5,7 @@
 #set :user, ""
 #server "", :web, :app, :db, :primary => true
 
-load  File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'settings', 'counter.rb'))
+load  File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'settings', 'counter_deploy.rb'))
 
 set :scm, :git
 set :use_sudo, false
