@@ -6,7 +6,7 @@
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
 #TODO set :key
-  :key         => '_<app_name>_session',
+  :key         => '_counter_session',
   :secret      => '6fcda971bb147cec4762ce0ce7359b8ed2e1920719885020e5f30e10cbc8c78ddb37a27554e401ef66f46d7807ef70cccc6e851ac1c65b590403987d2190f4f6'
 }
 
