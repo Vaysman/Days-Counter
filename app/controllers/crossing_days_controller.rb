@@ -26,4 +26,8 @@ class CrossingDaysController < ApplicationController
 #    @crossing_days = CrossingDay.all
     render :text => 'Hello'
   end
+
+  def show
+    
+  end
 end

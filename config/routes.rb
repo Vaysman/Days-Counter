@@ -1,11 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  map.show 'show', :controller => :crossing_days, :action => :show
+  map.list 'list', :controller => :crossing_days, :action => :list
   map.resources :crossing_days
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
   map.login 'login', :controller => 'user_sessions', :action => 'new'
   map.resources :user_sessions
-
   map.resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -40,7 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => :crossing_days, :action => :index;
+  map.root :controller => :crossing_days, :action => :show;
 
   # See how all your routes lay out with "rake routes"
 
