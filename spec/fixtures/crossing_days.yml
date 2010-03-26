@@ -1,0 +1,9 @@
+one:
+  user_id: 1
+  when: 2010-03-26
+  out: false
+
+two:
+  user_id: 1
+  when: 2010-03-26
+  out: false

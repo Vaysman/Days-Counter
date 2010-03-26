@@ -1,0 +1,21 @@
+<% title "New Crossing Day" %>
+
+<% form_for @crossing_day do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :when %><br />
+    <%= f.date_select :when %>
+  </p>
+  <p>
+    <%= f.label :out %><br />
+    <%= f.check_box :out %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+
+
+<p><%= link_to "Back to List", crossing_days_path %></p>

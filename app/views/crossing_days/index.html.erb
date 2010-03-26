@@ -1,0 +1,19 @@
+<% title "Crossing Days" %>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>When</th>
+    <th>Out</th>
+  </tr>
+  <% for crossing_day in @crossing_days %>
+    <tr>
+      <td><%=h crossing_day.user_id %></td>
+      <td><%=h crossing_day.when %></td>
+      <td><%=h crossing_day.out %></td>
+      <td><%= link_to "Destroy", crossing_day, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Crossing Day", new_crossing_day_path %></p>
