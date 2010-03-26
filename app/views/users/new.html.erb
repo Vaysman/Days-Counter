@@ -1,0 +1,15 @@
+<% title "Sign up" %>
+
+<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
+
+<% semantic_form_for @user do |f| %>
+    <% f.inputs do %>
+        <%= f.input :username %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+    <% end %>
+    <% f.buttons do %>
+        <%= f.commit_button :label => 'Sign up' %>
+    <% end %>
+<% end %>
