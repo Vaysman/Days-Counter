@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   end
   
   def days_in_estonia
+    return 0 if crossing_days.empty?
     list = crossing_days.ordered_by_date.collect(&:date_of).in_groups_of(2)
     list.last[1] ||= Date.today
     list.inject(0) {|days, pair| days + 1 + (pair[1] - pair[0]).to_i}
