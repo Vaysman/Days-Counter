@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.show 'show', :controller => :crossing_days, :action => :show
   map.list 'list', :controller => :crossing_days, :action => :list
-  map.resources :crossing_days
+  map.resources :crossing_days, :collection => { :destroy_multiple => :delete }
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'

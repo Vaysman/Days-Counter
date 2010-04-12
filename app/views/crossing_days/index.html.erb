@@ -1,19 +1,24 @@
-<% title "Crossing Days" %>
+<% title "Список дат" %>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>When</th>
-    <th>Out</th>
-  </tr>
-  <% for crossing_day in @crossing_days %>
+<% form_tag destroy_multiple_crossing_days_path, :method => :delete do %>
+  <table id="dates">
     <tr>
-      <td><%=h crossing_day.user_id %></td>
-      <td><%=h crossing_day.when %></td>
-      <td><%=h crossing_day.out %></td>
-      <td><%= link_to "Destroy", crossing_day, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>Выбрать</th>
+      <th>Въезд</th>
+      <th>Выезд</th>
     </tr>
-  <% end %>
-</table>
-
-<p><%= link_to "New Crossing Day", new_crossing_day_path %></p>
+    <% @crossing_days.in_groups_of(2, false) do |pair| %>
+      <tr>
+        <td><%= check_box_tag "crossing_day_ids[]", pair.collect(&:id).join(' ') %></td>
+        <% for crossing_day in pair %>
+          <td><%=h format_date_to_russian crossing_day.date_of %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  <%= submit_tag "Удалить выбраные" %>
+<% end%>
+<p>
+  <%= link_to 'Назад на главную', root_path %>
+</p>
+    

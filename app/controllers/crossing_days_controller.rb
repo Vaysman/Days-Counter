@@ -1,18 +1,16 @@
 class CrossingDaysController < ApplicationController
   before_filter :login_required
-  
-  def new
-    @crossing_day = CrossingDay.new
-  end
-  
+    
   def create
-    @crossing_day = CrossingDay.new(params[:crossing_day])
+    @crossing_day = CrossingDay.new(:date_of => params[:date].split('.').reverse.join('-'))
+    @crossing_day.in_est = !!params[:to_estonia]
     if @crossing_day.save
       flash[:notice] = "Successfully created crossing day."
-      redirect_to crossing_days_url
+      current_user.crossing_days << @crossing_day
     else
-      render :action => 'new'
+      flash[:error] = "Invalid date."
     end
+    render :show
   end
   
   def destroy
@@ -22,12 +20,13 @@ class CrossingDaysController < ApplicationController
     redirect_to crossing_days_url
   end
   
-  def index
-#    @crossing_days = CrossingDay.all
-    render :text => 'Hello'
+  def destroy_multiple
+    CrossingDay.destroy(params[:crossing_day_ids].collect(&:split).flatten)
+    flash[:notice] = "Successfully destroyed crossing days."
+    redirect_to root_path
   end
-
-  def show
-    
+  
+  def index
+    @crossing_days = current_user.crossing_days.ordered_by_date
   end
 end

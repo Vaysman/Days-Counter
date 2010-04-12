@@ -1,1 +1,14 @@
-<h1>180</h1>
+<% title 'Осталось ' + current_user.days_need.to_s + '. Сейчас в ' + where_is(current_user) + '.'%>
+<div id="daysleft"><%= current_user.days_need.to_s %></div>
+
+<% form_tag :controller => 'crossing_days', :action => :create do%>
+	<p id="in">
+		<%= text_field_tag :date, today_date_in_russian_style %>
+	</p>
+	<p id="out">
+		<%= submit_tag 'В Эстонию', :name => 'to_estonia', :disabled => current_user.abroad? %>
+		<%= submit_tag 'Из Эстонии', :name => 'from_estonia', :disabled => !current_user.abroad? %>
+	</p>
+	<%= link_to 'Список дат', crossing_days_path%>
+<% end %>
+
