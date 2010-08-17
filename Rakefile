@@ -9,4 +9,4 @@ require 'rake/rdoctask'
 
 require 'tasks/rails'
 
-require 'yaml_db'
+require 'load_yaml_db'
