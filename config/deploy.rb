@@ -5,6 +5,7 @@
 #set :user, ""
 #server "", :web, :app, :db, :primary => true
 
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'recipes', 'capistrano_database_yml.rb'))
 load  File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'settings', 'counter_deploy.rb'))
 
 set :scm, :git
