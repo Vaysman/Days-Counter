@@ -2,7 +2,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: <%=application%>_development
+  database: <%=db_name%>_development
   pool: 5
   username: <%=db_user%>
   password: <%=db_password%>
@@ -12,7 +12,7 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: <%=application%>_test
+  database: <%=db_name%>_test
   pool: 5
   username: <%=db_user%>
   password: <%=db_password%>
@@ -22,7 +22,7 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: <%=application%>_production
+  database: <%=db_name%>_production
   pool: 5
   username: <%=db_user%>
   password: <%=db_password%>
