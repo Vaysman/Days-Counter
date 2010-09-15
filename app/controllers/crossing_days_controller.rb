@@ -1,5 +1,5 @@
 class CrossingDaysController < ApplicationController
-  before_filter :login_required
+  before_filter :require_user
     
   def create
     @crossing_day = CrossingDay.new(:date_of => params[:date].split('.').reverse.join('-'))

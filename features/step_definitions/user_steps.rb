@@ -6,7 +6,7 @@ Given /^I am newly registered user with login '([^']+)' and password '([^']+)'$/
           :email => login + '@test.com')
 end
 
-When /^I am logged in with login '([^']+)' and password '([^']+)'$/ do |login, password|
+When /^I logged in with login '([^']+)' and password '([^']+)'$/ do |login, password|
   visit '/login'
   fill_in('Username', :with => login)
   fill_in('Password', :with => password)

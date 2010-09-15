@@ -17,3 +17,4 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 config.active_record.colorize_logging = false
+RAILS_DEFAULT_LOGGER = ActiveSupport::BufferedLogger.new("d:/WORK/RUBY/rails/Days-Counter/brow1.log")
